@@ -31,30 +31,30 @@ class TestStringSplosion(SimpleTestCase):
 
 
 class TestCatDog(SimpleTestCase):
-    def count_dog_cat(self):
+    def test_count_dog_cat(self):
         response = self.client.get("/cat-dog/catdogcatcat")
         self.assertContains(response, "False")
 
-    def count_cat(self):
+    def test_count_cat(self):
         response = self.client.get("/cat-dog/catcatcat")
         self.assertContains(response, "False")
 
-    def count_even(self):
+    def test_count_even(self):
         response = self.client.get("/cat-dog/catdog")
         self.assertContains(response, "True")
     
 
 
 class TestLoneSum(SimpleTestCase):
-    def count_even(self):
+    def test_count_even(self):
         response = self.client.get("/lone-sum/5/4/5")
         self.assertContains(response, "4")
 
 
-    def count_odd(self):
+    def test_count_odd(self):
         response = self.client.get("/lone-sum/3/3/7")
         self.assertContains(response, "7")
 
-    def count_same(self):
+    def test_count_same(self):
         response = self.client.get("/lone-sum/4/4/4")
         self.assertContains(response, "0")
